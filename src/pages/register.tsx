@@ -101,7 +101,7 @@ const register = () => {
           <p className=" text-[#FFFFFF] mt-4 w-fit m-auto">
             Already registered?
             <span className="text-[#11FFBD]">
-              <a href="">Sign in</a>
+              <a href="/login"> Sign in</a>
             </span>
           </p>
         </form>

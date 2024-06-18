@@ -57,7 +57,7 @@ const login = () => {
           <p className=" text-[#FFFFFF] mt-4 w-fit m-auto">
             Need an account?
             <span className="text-[#11FFBD]">
-              <a href="">Sign up</a>
+              <a href="/register"> Sign up</a>
             </span>
           </p>
         </form>
