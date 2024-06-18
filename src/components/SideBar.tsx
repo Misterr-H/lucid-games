@@ -1,4 +1,7 @@
 import React from 'react';
+import { TbAffiliate } from "react-icons/tb";
+import { FaNoteSticky } from "react-icons/fa6";
+import { SiSpringsecurity } from "react-icons/si";
 
 interface SidebarProps {
     userName: string; // Assuming userName is passed as props
@@ -32,13 +35,16 @@ const Sidebar: React.FC = () => {
 
             {/* Menu Options */}
             <ul className="py-2">
-                <li className="px-2 py-1 cursor-pointer hover:bg-gray-800 text-white">
+                <li className="px-2 py-1 flex flex-row cursor-pointer hover:bg-gray-800 text-white">
+                    <TbAffiliate className="h-6 w-6 text-white mr-1" />
                     Affiliate
                 </li>
-                <li className="px-2 py-1 cursor-pointer hover:bg-gray-800 text-white">
+                <li className="px-2 flex flex-row py-1 cursor-pointer hover:bg-gray-800 text-white">
+                    <FaNoteSticky className="h-6 w-6 text-white mr-1" />
                     Blog
                 </li>
-                <li className="px-2 py-1 cursor-pointer hover:bg-gray-800 text-white">
+                <li className="px-2 py-1 flex flex-row cursor-pointer hover:bg-gray-800 text-white">
+                    <SiSpringsecurity className="h-6 w-6 text-white mr-1" />
                     Responsible Gambling
                 </li>
                 <li className="px-2 py-1 cursor-pointer hover:bg-gray-800 text-white">
