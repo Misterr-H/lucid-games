@@ -11,7 +11,7 @@ const MyApp = ({ Component, pageProps }: any) => {
   const shouldRenderNavBar = route !== "/login" && route !== "/register";
 
   return (
-    <div className="flex h-screen">
+    <div className="flex h-screen bg-black">
       {shouldRenderSidebar && <Sidebar />}
       <div className="flex flex-col w-full">
         {shouldRenderNavBar && <NavBar />}

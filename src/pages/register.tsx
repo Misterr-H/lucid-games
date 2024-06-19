@@ -57,7 +57,7 @@ const register = () => {
               />{" "}
               <input
                 id="year"
-                placeholder="YY"
+                placeholder="YYYY"
                 className="shadow appearance-none rounded-xl w-full h-[38px] py-2 px-3 bg-[#111111] text-[#9094A6] mb-3 leading-tight focus:outline-none focus:shadow-outline"
               />
             </div>
