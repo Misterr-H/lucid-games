@@ -3,7 +3,7 @@ import Image from "next/image";
 
 const Home: React.FC = () => {
   return (
-    <div className="bg-black min-h-screen">
+    <div className=" min-h-screen">
       <main className="text-white flex flex-col items-center justify-between p-24">
         <h2 className="text-3xl font-bold mb-8">This is rendering.</h2>
 

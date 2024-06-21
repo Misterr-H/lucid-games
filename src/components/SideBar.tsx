@@ -10,9 +10,10 @@ import { MdOutlineSupportAgent } from 'react-icons/md';
 
 interface SidebarProps {
     userName: string;
+    isMobileView: boolean; // Add a prop to determine if it's mobile view
 }
 
-const Sidebar: React.FC<SidebarProps> = ({ userName }) => {
+const Sidebar: React.FC<SidebarProps> = ({ userName, isMobileView }) => {
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
     const toggleDropdown = () => {
@@ -20,7 +21,7 @@ const Sidebar: React.FC<SidebarProps> = ({ userName }) => {
     };
 
     return (
-        <div className="bg-gray-900 text-white w-full md:w-64 flex flex-col md:fixed md:left-0 md:top-0 md:h-full md:border-r border-gray-700 mt-4 md:mt-0">
+        <div className={`bg-[#AAFFA9] bg-opacity-5 text-white w-full md:w-64 flex flex-col ${isMobileView ? 'md:fixed md:left-0 md:top-0' : ''} md:h-full md:border-r border-gray-700 mt-4 md:mt-0`}>
             {/* Company Name */}
             <div className="p-2 text-center">
                 <h1 className="text-4xl font-bold mt-4">Strive</h1>
@@ -30,9 +31,12 @@ const Sidebar: React.FC<SidebarProps> = ({ userName }) => {
             <hr className="border-t border-gray-700 mx-4 mt-2" />
 
             {/* Profile Section */}
-            <div className="p-2 flex items-center cursor-pointer bg-gray-800 hover:bg-gray-700 rounded-lg mt-3" onClick={toggleDropdown}>
+            <div 
+                className={`p-2 flex items-center cursor-pointer rounded-lg mt-3 ${isDropdownOpen ? 'bg-[#FFFFFF] bg-opacity-10' : 'bg-transparent'}`} 
+                onClick={toggleDropdown}
+            >
                 {/* Profile Photo */}
-                <div className="h-10 w-10 rounded-full bg-gray-300 mr-2"></div>
+                <div className="h-10 w-10 bg-gray-300 mr-2"></div>
                 {/* Hello message */}
                 <div className="flex flex-col">
                     <p className="text-lg font-semibold">Hello👋</p>
@@ -46,29 +50,29 @@ const Sidebar: React.FC<SidebarProps> = ({ userName }) => {
             {/* Dropdown Menu */}
             {isDropdownOpen && (
                 <ul className="pl-8">
-                    <li className="py-1 cursor-pointer hover:bg-gray-800 relative pl-4 flex items-center">
+                    <li className="py-1 cursor-pointer relative pl-4 flex items-center hover:text-[#AAFFA9]">
                         <span className="absolute left-0 w-1 h-full bg-gray-700"></span>
-                        <IoWalletOutline className="h-6 w-6 text-white mr-1" style={{ fill: "#FFFFFF" }} />
+                        <IoWalletOutline className="mb-2 h-6 w-6 mr-1" style={{ fill: "currentColor" }} />
                         <span className="ml-2">Wallet</span>
                     </li>
-                    <li className="py-1 cursor-pointer hover:bg-gray-800 relative pl-4 flex items-center">
+                    <li className="py-1 cursor-pointer relative pl-4 flex items-center hover:text-[#AAFFA9]">
                         <span className="absolute left-0 w-1 h-full bg-gray-700"></span>
-                        <IoStatsChartOutline className="h-6 w-6 text-white mr-1" />
+                        <IoStatsChartOutline className="mb-2 h-6 w-6 mr-1" style={{ fill: "currentColor" }} />
                         <span className="ml-2">Statistics</span>
                     </li>
-                    <li className="py-1 cursor-pointer hover:bg-gray-800 relative pl-4 flex items-center">
+                    <li className="py-1 cursor-pointer relative pl-4 flex items-center hover:text-[#AAFFA9]">
                         <span className="absolute left-0 w-1 h-full bg-gray-700"></span>
-                        <FaReceipt className="h-6 w-6 text-white mr-1" />
+                        <FaReceipt className="mb-2 h-6 w-6 mr-1" style={{ fill: "currentColor" }} />
                         <span className="ml-2">Transactions</span>
                     </li>
-                    <li className="py-1 cursor-pointer hover:bg-gray-800 relative pl-4 flex items-center">
+                    <li className="py-1 cursor-pointer relative pl-4 flex items-center hover:text-[#AAFFA9]">
                         <span className="absolute left-0 w-1 h-full bg-gray-700"></span>
-                        <SiBitcoinsv className="h-6 w-6 text-white mr-1" />
+                        <SiBitcoinsv className="mb-2 h-6 w-6 mr-1" style={{ fill: "currentColor" }} />
                         <span className="ml-2">My Bets</span>
                     </li>
-                    <li className="py-1 cursor-pointer hover:bg-gray-800 relative pl-4 flex items-center">
+                    <li className="py-1 cursor-pointer relative pl-4 flex items-center hover:text-[#AAFFA9]">
                         <span className="absolute left-0 w-1 h-full bg-gray-700"></span>
-                        <IoSettingsOutline className="h-6 w-6 text-white mr-1" />
+                        <IoSettingsOutline className="mb-2 h-6 w-6 mr-1" style={{ fill: "currentColor" }} />
                         <span className="ml-2">Settings</span>
                     </li>
                 </ul>
@@ -79,21 +83,21 @@ const Sidebar: React.FC<SidebarProps> = ({ userName }) => {
 
             {/* Menu Options */}
             <ul className="py-2">
-                <li className="px-2 py-1 flex flex-row cursor-pointer hover:bg-gray-800 text-white">
-                    <TbAffiliate className="h-6 w-6 text-white mr-1" />
-                    Affiliate
+                <li className="px-2 py-1 flex flex-row cursor-pointer group text-white">
+                    <TbAffiliate className="mb-2 h-6 w-6 text-white opacity-70 mr-1 group-hover:text-[#AAFFA9]" />
+                    <span className="group-hover:text-[#AAFFA9]">Affiliate</span>
                 </li>
-                <li className="px-2 flex flex-row py-1 cursor-pointer hover:bg-gray-800 text-white">
-                    <FaNoteSticky className="h-6 w-6 text-white mr-1" />
-                    Blog
+                <li className="px-2 py-1 flex flex-row cursor-pointer group text-white">
+                    <FaNoteSticky className="mb-2 h-6 w-6 text-white opacity-70 mr-1 group-hover:text-[#AAFFA9]" />
+                    <span className="group-hover:text-[#AAFFA9]">Blog</span>
                 </li>
-                <li className="px-2 py-1 flex flex-row cursor-pointer hover:bg-gray-800 text-white">
-                    <SiSpringsecurity className="h-6 w-6 text-white mr-1" />
-                    Responsible Gambling
+                <li className="px-2 py-1 flex flex-row cursor-pointer group text-white">
+                    <SiSpringsecurity className="mb-2 h-6 w-6 text-white opacity-70 mr-1 group-hover:text-[#AAFFA9]" />
+                    <span className="group-hover:text-[#AAFFA9]">Responsible Gambling</span>
                 </li>
-                <li className="px-2 py-1 flex flex-row cursor-pointer hover:bg-gray-800 text-white">
-                    <MdOutlineSupportAgent className="h-6 w-6 text-white mr-1" />
-                    Help & Support
+                <li className="px-2 py-1 flex flex-row cursor-pointer group text-white">
+                    <MdOutlineSupportAgent className="mb-2 h-6 w-6 text-white opacity-70 mr-1 group-hover:text-[#AAFFA9]" />
+                    <span className="group-hover:text-[#AAFFA9]">Help & Support</span>
                 </li>
             </ul>
 
