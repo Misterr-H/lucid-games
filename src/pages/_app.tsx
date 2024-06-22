@@ -20,7 +20,7 @@ const MyApp = ({ Component, pageProps }: any) => {
 
   return (
     <main className={`${jakarta.variable} font-jakarta`}>
-      <div className="flex h-screen bg-black">
+      <div className="flex min-h-screen bg-black">
         {shouldRenderSidebar && <Sidebar />}
         <div className="flex flex-col w-full">
           {shouldRenderNavBar && <NavBar />}
