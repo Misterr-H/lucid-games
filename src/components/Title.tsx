@@ -12,4 +12,5 @@ const Title = ({ name }) => {
   );
 };
 
+
 export default Title;
