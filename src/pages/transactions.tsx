@@ -1,89 +1,56 @@
-import * as React from "react";
-import SwipeableViews from "react-swipeable-views";
-import { useTheme } from "@mui/material/styles";
-import AppBar from "@mui/material/AppBar";
-import Tabs from "@mui/material/Tabs";
-import Tab from "@mui/material/Tab";
-import Typography from "@mui/material/Typography";
-import Box from "@mui/material/Box";
+import React, { useState } from "react";
+import Card from "../components/CardDW";
+import Card2 from "../components/CardB";
+import Title from "../components/Title";
 
-interface TabPanelProps {
-  children?: React.ReactNode;
-  dir?: string;
-  index: number;
-  value: number;
-}
+const Tabs = () => {
+  const [activeTab, setActiveTab] = useState(0);
 
-function TabPanel(props: TabPanelProps) {
-  const { children, value, index, ...other } = props;
+  const tabs = [
+    { id: 0, name: "Deposits" },
+    { id: 1, name: "Withrawals" },
+    { id: 2, name: "Best archieve" },
+  ];
 
   return (
-    <div
-      role="tabpanel"
-      hidden={value !== index}
-      id={`full-width-tabpanel-${index}`}
-      aria-labelledby={`full-width-tab-${index}`}
-      {...other}
-    >
-      {value === index && (
-        <Box sx={{ p: 3 }}>
-          <Typography>{children}</Typography>
-        </Box>
-      )}
+    <div className="w-[80%] mx-auto mt-4">
+      <div className="transaction-line">
+        <Title name="Transaction" />
+      </div>
+      <div className="flex space-x-4  bg-[#171c1c] border-gray-300 mt-4">
+        {tabs.map((tab) => (
+          <button
+            key={tab.id}
+            onClick={() => setActiveTab(tab.id)}
+            className={`px-4 py-2 text-gray-600 transition-all duration-200 ${
+              activeTab === tab.id
+                ? "border-b-2 border-green-500 bg-clip-text text-transparent bg-gradient-to-r from-green-400 to-green-600"
+                : ""
+            }`}
+          >
+            {tab.name}
+          </button>
+        ))}
+      </div>
+      <div className="mt-4">
+        {activeTab === 0 && (
+          <div>
+            <Card />
+          </div>
+        )}
+        {activeTab === 1 && (
+          <div>
+            <Card />
+          </div>
+        )}
+        {activeTab === 2 && (
+          <div>
+            <Card2 />
+          </div>
+        )}
+      </div>
     </div>
   );
-}
+};
 
-function a11yProps(index: number) {
-  return {
-    id: `full-width-tab-${index}`,
-    "aria-controls": `full-width-tabpanel-${index}`,
-  };
-}
-
-export default function FullWidthTabs() {
-  const theme = useTheme();
-  const [value, setValue] = React.useState(0);
-
-  const handleChange = (event: React.SyntheticEvent, newValue: number) => {
-    setValue(newValue);
-  };
-
-  const handleChangeIndex = (index: number) => {
-    setValue(index);
-  };
-
-  return (
-    <Box sx={{ bgcolor: "tomato", width: "100%" }}>
-      <AppBar position="static">
-        <Tabs
-          value={value}
-          onChange={handleChange}
-          indicatorColor="secondary"
-          textColor="inherit"
-          variant="fullWidth"
-          aria-label="full width tabs example"
-        >
-          <Tab label="Item One" {...a11yProps(0)} />
-          <Tab label="Item Two" {...a11yProps(1)} />
-          <Tab label="Item Three" {...a11yProps(2)} />
-        </Tabs>
-      </AppBar>
-      <SwipeableViews
-        axis={theme.direction === "rtl" ? "x-reverse" : "x"}
-        index={value}
-        onChangeIndex={handleChangeIndex}
-      >
-        <TabPanel value={value} index={0} dir={theme.direction}>
-          Item One
-        </TabPanel>
-        <TabPanel value={value} index={1} dir={theme.direction}>
-          Item Two
-        </TabPanel>
-        <TabPanel value={value} index={2} dir={theme.direction}>
-          Item Three
-        </TabPanel>
-      </SwipeableViews>
-    </Box>
-  );
-}
+export default Tabs;

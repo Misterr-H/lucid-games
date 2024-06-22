@@ -3,7 +3,7 @@ import Title from "../components/Title";
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen bg-gray-900 flex-col justify-between p-24">
+    <main className="flex min-h-screen bg-gray-900 flex-col p-24">
       <Title name="Headline" />
       <Title name="Games" />
       {/* <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
