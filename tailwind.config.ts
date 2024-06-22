@@ -18,8 +18,15 @@ const config: Config = {
           'custom-gradient': 'linear-gradient(to bottom, #11FFBD 0%, #782DE8 100%)',
           'custom-gradient-1': 'linear-gradient(to bottom, #AAFFA9 0%, #AAFFA9 100%)',
       },
+      fontFamily: {
+        jakarta: ["var(--font-jakarta)"],
+        mono: ["var(--font-roboto-mono)"],
+      },
+      borderColor: {
+        "white-opacity-15": "rgba(255, 255, 255, 0.10)",
+      },
     },
   },
-  plugins: [],
+  // plugins: [require("daisyui")],
 };
 export default config;

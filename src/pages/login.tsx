@@ -60,6 +60,7 @@ const login = () => {
               <a href="/register"> Sign up</a>
             </span>
           </p>
+          <div className="w-full mt-5 h-[1px] bg-gradient-to-r from-[#AAFFA9] to-transparent"></div>
         </form>
       </div>
       <div className="right hidden md:flex w-1/2 h-full bg-gradient-to-r from-[#AAFFA9] to-[#11FFBD] items-center justify-center"></div>

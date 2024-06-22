@@ -5,6 +5,14 @@ import NavBar from "@/components/NavBar";
 import Title from "@/components/Title"; // Import the Title component
 import useWindowSize from "@/hooks/useWindowSize";
 
+import { Plus_Jakarta_Sans } from "next/font/google";
+
+const jakarta = Plus_Jakarta_Sans({
+  subsets: ["latin"],
+  weight: ["200", "300", "400", "500", "600", "700", "800"],
+  variable: "--font-jakarta",
+});
+
 const MyApp = ({ Component, pageProps }: any) => {
   const router = useRouter();
   const { route } = router;
@@ -15,7 +23,7 @@ const MyApp = ({ Component, pageProps }: any) => {
   const shouldRenderNavBar = route !== "/login" && route !== "/register";
 
   return (
-    <div className="flex h-screen bg-black">
+    <div className=`flex h-screen bg-black font-jakarta ${jakarta.variable} `>
       {(shouldRenderSidebar && windowSize.width as number > 768) && <Sidebar userName="iGaurav17" />}
       <div className="flex flex-col w-full bg-black">
 
@@ -33,9 +41,8 @@ const MyApp = ({ Component, pageProps }: any) => {
           <Component {...pageProps} />
 
         </div>
-        
       </div>
-    </div>
+    </main>
   );
 };
 
