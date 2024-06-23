@@ -10,18 +10,29 @@ import { MdOutlineSupportAgent } from 'react-icons/md';
 
 interface SidebarProps {
     userName: string;
-    isMobileView: boolean; // Add a prop to determine if it's mobile view
+    isMobileView: boolean;
+    isSidebarOpen: boolean;
+    toggleSidebar: () => void;
 }
 
-const Sidebar: React.FC<SidebarProps> = ({ userName, isMobileView }) => {
+const Sidebar: React.FC<SidebarProps> = ({ userName, isMobileView, isSidebarOpen, toggleSidebar }) => {
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
-    const toggleDropdown = () => {
+    const handleToggleDropdown = () => {
         setIsDropdownOpen(!isDropdownOpen);
     };
 
     return (
         <div className={`bg-[#AAFFA9] bg-opacity-5 text-white w-full md:w-64 flex flex-col ${isMobileView ? 'md:fixed md:left-0 md:top-0' : ''} md:h-full md:border-r border-gray-700 mt-4 md:mt-0`}>
+            {/* Hamburger Icon */}
+            {isMobileView && (
+                <button onClick={toggleSidebar} className="p-2 text-white bg-gray-800 z-50 flex items-center justify-center">
+                    <div className="w-6 h-0.5 bg-white mb-1"></div>
+                    <div className="w-4 h-0.5 bg-white mb-1"></div>
+                    <div className="w-3 h-0.5 bg-white"></div>
+                </button>
+            )}
+
             {/* Company Name */}
             <div className="p-2 text-center">
                 <h1 className="text-4xl font-bold mt-4">Strive</h1>
@@ -33,14 +44,14 @@ const Sidebar: React.FC<SidebarProps> = ({ userName, isMobileView }) => {
             {/* Profile Section */}
             <div 
                 className={`p-2 flex items-center cursor-pointer rounded-lg mt-3 ${isDropdownOpen ? 'bg-[#FFFFFF] bg-opacity-10' : 'bg-transparent'}`} 
-                onClick={toggleDropdown}
+                onClick={handleToggleDropdown}
             >
                 {/* Profile Photo */}
                 <div className="h-10 w-10 bg-gray-300 mr-2"></div>
                 {/* Hello message */}
                 <div className="flex flex-col">
                     <p className="text-lg font-semibold">Hello👋</p>
-                    <h2 className="text-lg font-semibold">{userName}</h2>
+                    <h2 className="text-lg font-semibold">{userName|| ""}</h2>
                 </div>
                 <div className="ml-auto">
                     {isDropdownOpen ? <FiChevronDown className="h-6 w-6 text-white" /> : <FiChevronRight className="h-6 w-6 text-white" />}
