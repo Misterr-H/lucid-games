@@ -23,26 +23,28 @@ const MyApp = ({ Component, pageProps }: any) => {
   const shouldRenderNavBar = route !== "/login" && route !== "/register";
 
   return (
-    <div className=`flex h-screen bg-black font-jakarta ${jakarta.variable} `>
-      {(shouldRenderSidebar && windowSize.width as number > 768) && <Sidebar userName="iGaurav17" />}
+    <div className={`flex h-screen bg-black font-jakarta ${jakarta.variable} `}>
+      {shouldRenderSidebar && (windowSize.width as number) > 768 && (
+        <Sidebar userName="iGaurav17" isMobileView={false} />
+      )}
       <div className="flex flex-col w-full bg-black">
-
         {shouldRenderNavBar && <NavBar />}
 
         {/* Add margin bottom to create gap
         <div className="mb-10" />
 
         {/* Render the Title component */}
-        {/* <Title name="Stories" /> */} 
+        {/* <Title name="Stories" /> */}
 
-        {(shouldRenderSidebar && windowSize.width as number < 768) && <Sidebar userName="iGaurav173" />}
+        {shouldRenderSidebar && (windowSize.width as number) < 768 && (
+          <Sidebar userName="iGaurav173" isMobileView={true} />
+        )}
 
-        <div className="bg-black"> 
+        <div className="bg-black">
           <Component {...pageProps} />
-
         </div>
       </div>
-    </main>
+    </div>
   );
 };
 

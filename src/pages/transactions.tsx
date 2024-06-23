@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Card from "../components/CardDW";
 import Card2 from "../components/CardB";
+import Card3 from "../components/CardMB";
 import Title from "../components/Title";
 
 const Tabs = () => {
@@ -24,7 +25,7 @@ const Tabs = () => {
             onClick={() => setActiveTab(tab.id)}
             className={`px-4 py-2 text-gray-600 transition-all duration-200 ${
               activeTab === tab.id
-                ? "border-b-2 border-green-500 bg-clip-text text-transparent bg-gradient-to-r from-green-400 to-green-600"
+                ? "border-b-2 border-[#AAFFA9]  text-white text-[14px] font-medium"
                 : ""
             }`}
           >
@@ -36,15 +37,36 @@ const Tabs = () => {
         {activeTab === 0 && (
           <div>
             <Card />
+            <Card />
+            <Card />
+            <Card />
+            <Card />
+            <Card />
           </div>
         )}
         {activeTab === 1 && (
           <div>
-            <Card />
+            <Card3 />
+            <Card3 />
+            <Card3 />
+            <Card3 />
+            <Card3 />
+            <Card3 />
+            <Card3 />
+            <Card3 />
+            <Card3 />
           </div>
         )}
         {activeTab === 2 && (
           <div>
+            <Card2 />
+            <Card2 />
+            <Card2 />
+            <Card2 />
+            <Card2 />
+            <Card2 />
+            <Card2 />
+            <Card2 />
             <Card2 />
           </div>
         )}
