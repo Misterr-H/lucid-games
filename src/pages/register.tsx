@@ -16,7 +16,7 @@ const register = () => {
               type="email"
               id="email"
               placeholder="Enter email"
-              className="shadow appearance-none rounded-xl w-full h-[38px] py-2 px-3 bg-[#111111] text-[#9094A6] leading-tight focus:outline-none focus:shadow-outline"
+              className="shadow appearance-none rounded-lg w-full h-[38px] py-2 px-3 bg-[#111111] text-[#9094A6] leading-tight focus:outline-none focus:shadow-outline"
             />
           </div>
           <div className="mb-4">
@@ -26,7 +26,7 @@ const register = () => {
             <input
               id="username"
               placeholder="Username"
-              className="shadow appearance-none rounded-xl w-full h-[38px] py-2 px-3 bg-[#111111] text-[#9094A6] leading-tight focus:outline-none focus:shadow-outline"
+              className="shadow appearance-none rounded-lg w-full h-[38px] py-2 px-3 bg-[#111111] text-[#9094A6] leading-tight focus:outline-none focus:shadow-outline"
             />
           </div>
           <div className="mb-4">
@@ -37,7 +37,7 @@ const register = () => {
               type="password"
               id="password"
               placeholder="Password"
-              className="shadow appearance-none rounded-xl w-full h-[38px] py-2 px-3 bg-[#111111] text-[#9094A6] mb-3 leading-tight focus:outline-none focus:shadow-outline"
+              className="shadow appearance-none rounded-lg w-full h-[38px] py-2 px-3 bg-[#111111] text-[#9094A6] mb-3 leading-tight focus:outline-none focus:shadow-outline"
             />
           </div>
           <div className="mb-4">
@@ -48,17 +48,17 @@ const register = () => {
               <input
                 id="date"
                 placeholder="DD"
-                className="shadow appearance-none rounded-xl w-full h-[38px] py-2 px-3 bg-[#111111] text-[#9094A6] mb-3 leading-tight focus:outline-none focus:shadow-outline"
+                className="shadow appearance-none rounded-lg w-full h-[38px] py-2 px-3 bg-[#111111] text-[#9094A6] mb-3 leading-tight focus:outline-none focus:shadow-outline"
               />
               <input
                 id="month"
                 placeholder="MM"
-                className="shadow appearance-none rounded-xl w-full h-[38px] py-2 px-3 bg-[#111111] text-[#9094A6] mb-3 leading-tight focus:outline-none focus:shadow-outline"
+                className="shadow appearance-none rounded-lg w-full h-[38px] py-2 px-3 bg-[#111111] text-[#9094A6] mb-3 leading-tight focus:outline-none focus:shadow-outline"
               />{" "}
               <input
                 id="year"
-                placeholder="YY"
-                className="shadow appearance-none rounded-xl w-full h-[38px] py-2 px-3 bg-[#111111] text-[#9094A6] mb-3 leading-tight focus:outline-none focus:shadow-outline"
+                placeholder="YYYY"
+                className="shadow appearance-none rounded-lg w-full h-[38px] py-2 px-3 bg-[#111111] text-[#9094A6] mb-3 leading-tight focus:outline-none focus:shadow-outline"
               />
             </div>
           </div>
@@ -70,12 +70,12 @@ const register = () => {
               <input
                 id="phonecode"
                 placeholder="+91"
-                className="shadow appearance-none rounded-xl w-1/4 h-[38px] py-2 px-3 bg-[#111111] text-[#9094A6] mb-3 leading-tight focus:outline-none focus:shadow-outline"
+                className="shadow appearance-none rounded-lg w-1/4 h-[38px] py-2 px-3 bg-[#111111] text-[#9094A6] mb-3 leading-tight focus:outline-none focus:shadow-outline"
               />
               <input
                 id="phone"
                 placeholder=""
-                className="shadow appearance-none rounded-xl w-3/4 h-[38px] py-2 px-3 bg-[#111111] text-[#9094A6] mb-3 leading-tight focus:outline-none focus:shadow-outline"
+                className="shadow appearance-none rounded-lg w-3/4 h-[38px] py-2 px-3 bg-[#111111] text-[#9094A6] mb-3 leading-tight focus:outline-none focus:shadow-outline"
               />
             </div>
           </div>

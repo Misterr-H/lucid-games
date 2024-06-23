@@ -4,8 +4,6 @@ import { useState } from "react";
 import Sidebar from "@/components/SideBar";
 import NavBar from "@/components/NavBar";
 import useWindowSize from "@/hooks/useWindowSize";
-<<<<<<< Updated upstream
-=======
 import { Plus_Jakarta_Sans } from "next/font/google";
 
 const jakarta = Plus_Jakarta_Sans({
@@ -13,7 +11,6 @@ const jakarta = Plus_Jakarta_Sans({
   weight: ["200", "300", "400", "500", "600", "700", "800"],
   variable: "--font-jakarta",
 });
->>>>>>> Stashed changes
 
 const MyApp = ({ Component, pageProps }: any) => {
   const router = useRouter();
@@ -28,16 +25,10 @@ const MyApp = ({ Component, pageProps }: any) => {
   const toggleSidebar = () => setSidebarOpen(!isSidebarOpen);
 
   return (
-<<<<<<< Updated upstream
-    <div className="flex h-screen bg-black">
-      {(shouldRenderSidebar && windowSize.width as number > 768) && <Sidebar userName="iGaurav17" />}
-      <div className="flex flex-col w-full bg-black">
 
-=======
     <div className={`flex h-screen bg-black font-jakarta ${jakarta.variable}`}>
       {shouldRenderSidebar && windowSize.width > 768 && <Sidebar userName="iGaurav17" isMobileView={false} />}
       <div className="flex flex-col w-full h-full overflow-auto bg-black">
->>>>>>> Stashed changes
         {shouldRenderNavBar && <NavBar />}
 
         {/* Show/Hide Sidebar Button */}
@@ -59,8 +50,8 @@ const MyApp = ({ Component, pageProps }: any) => {
         {/* Main Content */}
         <div className={`bg-black overflow-auto ${isMobileView ? 'w-screen' : ''}`} style={isMobileView? {} :{width:"calc(100vw - 16rem)"}} >
           <Component {...pageProps} isMobileView={isMobileView} />
+
         </div>
-        
       </div>
     </div>
   );
