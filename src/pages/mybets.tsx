@@ -13,7 +13,7 @@ const Tabs = () => {
   ];
 
   return (
-    <div className="w-[80%] mx-auto mt-4">
+    <div className="w-[80%] mx-auto mt-4 min-h-screen">
       <div className="transaction-line">
         <Title name="My Bets" />
       </div>

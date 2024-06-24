@@ -23,7 +23,7 @@ const Card = () => {
           </div>
         </div>
         <div className="col-span-1 flex items-center justify-end">
-          <button className="border border-[#59845b] px-2  rounded-3xl text-[#abffa8] text-[12px] font-normal">
+          <button className="border border-[#59845b] py-1 px-2  rounded-3xl text-[#abffa8] text-[12px] font-normal">
             0.02X
           </button>
         </div>

@@ -3,7 +3,7 @@ import Title from "../components/Title";
 
 const Settings = () => {
   return (
-    <div className="flex flex-col w-4/5 mx-auto mt-4 h-full">
+    <div className="flex flex-col w-4/5 mx-auto mt-4 min-h-screen">
       <div className="wallet-line">
         <Title name="Settings" />
       </div>

@@ -81,7 +81,6 @@ const Home: React.FC = () => {
         </a>
       </div> */}
     </main>
-
   );
 };
 
