@@ -73,3 +73,34 @@ const tokenRefresh = async () => {
     throw error;
   }
 };
+
+export const requestOTP = async (phoneNumber: any) => {
+  try {
+    const response = await api.post("/requestOTP", { phoneNumber });
+    return {
+      status: response.status,
+      message: "OTP requested successfully",
+    };
+  } catch (error) {
+    console.error("Failed to request OTP", error);
+    throw error;
+  }
+};
+
+
+
+export const verifyOTP = async (phoneNumber: any, otp: any) => {
+  try {
+    const response = await api.post("/verifyOTP", { phoneNumber, otp });
+    const { accessToken, refreshToken } = response.data;
+    Cookies.set("access_token", accessToken);
+    Cookies.set("refresh_token", refreshToken);
+    return {
+      status: response.status,
+      message: "OTP verification successful",
+    };
+  } catch (error) {
+    console.error("Failed to verify OTP", error);
+    throw error;
+  }
+};
