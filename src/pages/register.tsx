@@ -1,6 +1,7 @@
 import { registerUser } from "@/httpd";
 import React from "react";
 import { useState, FormEvent } from "react";
+import { useNavigate } from "react-router-dom";
 
 const register = () => {
   const [email, setEmail] = useState("");
@@ -8,24 +9,31 @@ const register = () => {
   const [dob, setDob] = useState("");
   const [password, setPassword] = useState("");
   const [phone, setPhone] = useState("");
-  // const navigate = use
+  const navigate = useNavigate();
   const handlesubmit = async (e: FormEvent<HTMLButtonElement>) => {
     e.preventDefault();
     const form = document.getElementById("registerForm");
     let formData = new FormData(form as HTMLFormElement);
     // form.get("email");
-    const reqData = {
-      email,
-      username,
-      dob,
-      password,
-      phone,
+    const data = {
+      email: formData.get("email"),
+      username: formData.get("username"),
+      dob: `${formData.get("doby")}-${formData.get("dobm")}-${formData.get(
+        "dobd"
+      )}`,
+      password: formData.get("password"),
+      phone: `${formData.get("phonecode")}${formData.get("phone")}`,
     };
-    console.log(formData.values());
-    const res = await registerUser(reqData);
-    if(res ==0){
-      //show otp
-    }else if(res==)
+
+    try {
+      const res = await registerUser(data);
+      console.log("Status code:", status);
+      if (res.status == 200) {
+        navigate("/login");
+      }
+    } catch (error) {
+      console.error("An error occurred:", error);
+    }
   };
 
   return (

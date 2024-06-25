@@ -1,4 +1,9 @@
 import axios from "axios";
+import Cookies from "js-cookie";
+
+export const getAccessToken = () => Cookies.get("access_token");
+export const getRefreshToken = () => Cookies.get("refresh_token");
+export const isAuthenticated = () => !!getAccessToken();
 
 const api = axios.create({
   headers: {
@@ -9,14 +14,62 @@ const api = axios.create({
 });
 // 401 -> accesstoken expired
 
-export const registerUser = (data:any) =>{
-    api.post("/register",).then((resp)=>{
+export const registerUser = async (data: any) => {
+  try {
+    const response = await api.post("/register", data);
+    return {
+      status: response.status,
+      message: "Registration successful",
+    };
+  } catch (error) {
+    throw error;
+  }
+};
 
-    })
-    
-    return 0;
-}
+export const authenticate = async (data: any) => {
+  try {
+    const response = await api.post("/authenticate", data);
+    const { accessToken, refreshToken } = response.data;
+    Cookies.set("access_token", accessToken);
+    Cookies.set("refresh_token", refreshToken);
+    return {
+      status: response.status,
+      message: "Authentication successful",
+    };
+  } catch (error) {
+    throw error;
+  }
+};
 
+export const getUserData = async () => {
+  try {
+    const accessToken = getAccessToken();
+    if (accessToken) {
+      const response = await api.get("/userData", {
+        headers: { Authorization: `Bearer ${accessToken}` },
+      });
+      return response.data;
+    } else {
+      await tokenRefresh();
+      await getUserData();
+    }
+  } catch (error) {
+    console.error("Failed to fetch user data", error);
+    throw error;
+  }
+};
 
-
-const 
+const tokenRefresh = async () => {
+  try {
+    const response = await api.post("/authenticate", getRefreshToken);
+    const { accessToken, refreshToken } = response.data;
+    Cookies.set("access_token", accessToken);
+    Cookies.set("refresh_token", refreshToken);
+    return {
+      status: response.status,
+      message: "Authentication successful",
+    };
+  } catch (error) {
+    throw error;
+  }
+};
